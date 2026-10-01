@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Abubakar Yaro</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          colors: {
+            brand: {
+              400: '#38bdf8',
+              500: '#06b6d4',
+              600: '#0284c7',
+            },
+            darkbg: '#0a0c10',
+            darkcard: '#11151c',
+            darkborder: '#1f2937'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Glow & Glassmorphism Effects */
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .glass-card-dark {
+      background: rgba(17, 21, 28, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .glow-effect {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+    }
+    .glow-effect:hover {
+      box-shadow: 0 0 35px 0px rgba(99, 102, 241, 0.5);
+    }
+
+    /* Light Mode Contrast Rules */
+    html:not(.dark) body {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    html:not(.dark) header {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) nav a,
+    html:not(.dark) #mobileMenu a {
+      color: #334155 !important;
+    }
+    html:not(.dark) nav a:hover,
+    html:not(.dark) #mobileMenu a:hover {
+      color: #0284c7 !important;
+    }
+    html:not(.dark) .glass-card-dark {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    html:not(.dark) h1, 
+    html:not(.dark) h2, 
+    html:not(.dark) h3, 
+    html:not(.dark) h4, 
+    html:not(.dark) h5,
+    html:not(.dark) .text-white {
+      color: #0f172a !important;
+    }
+    html:not(.dark) p, 
+    html:not(.dark) li, 
+    html:not(.dark) .text-gray-300,
+    html:not(.dark) .text-gray-400 {
+      color: #334155 !important;
+    }
+    html:not(.dark) .bg-gray-800,
+    html:not(.dark) .bg-gray-800\/80 {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .bg-gray-900\/90,
+    html:not(.dark) .bg-gray-950 {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0c10;
+    }
+    html:not(.dark) ::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0284c7;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-darkbg text-gray-200 dark:bg-darkbg dark:text-gray-200 antialiased font-sans transition-colors duration-300">
+
+  <!-- Header & Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-darkbg/85 dark:bg-darkbg/85 border-b border-gray-800/60 transition-colors duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Top Left Brand: MY Initials + Profile Picture -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <!-- MY Badge -->
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-black text-white text-base shadow-lg group-hover:scale-105 transition-transform duration-200 tracking-wider">
+          MY
+        </div>
+
+        <span class="font-bold text-lg text-white tracking-tight hidden sm:inline-block group-hover:text-cyan-400 transition-colors">
+          Muhammad <span class="text-cyan-400">Yaro</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-gray-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#certifications" class="hover:text-cyan-400 transition-colors">Certifications</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Dark / Light Mode Toggle Button -->
+        <button id="themeToggle" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-gray-800/80 text-cyan-400 hover:text-white hover:bg-gray-700 transition-all border border-gray-700/50">
+          <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" aria-label="Toggle Mobile Menu" class="lg:hidden p-2.5 rounded-xl bg-gray-800/80 text-gray-300 hover:text-white hover:bg-gray-700">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-darkcard/95 border-b border-gray-800 px-6 py-6 flex-col gap-4 text-gray-300">
+      <a href="#about" class="mobile-link py-2 hover:text-cyan-400">About</a>
+      <a href="#education" class="mobile-link py-2 hover:text-cyan-400">Education</a>
+      <a href="#experience" class="mobile-link py-2 hover:text-cyan-400">Experience</a>
+      <a href="#projects" class="mobile-link py-2 hover:text-cyan-400">Projects</a>
+      <a href="#skills" class="mobile-link py-2 hover:text-cyan-400">Skills</a>
+      <a href="#certifications" class="mobile-link py-2 hover:text-cyan-400">Certifications</a>
+      <a href="#contact" class="mobile-link py-2 hover:text-cyan-400">Contact</a>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+        
+        <!-- Main Portrait Avatar Container -->
+        <div class="relative mb-8 group">
+          <div class="absolute -inset-1.5 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 rounded-full blur-md opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+          <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-darkbg shadow-2xl bg-gray-900">
+            <img 
+              src="assets/picture/image.jpeg" 
+              alt="Muhammad Abubakar Yaro Portrait" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
+              id="heroAvatar"
+              onerror="this.onerror=null; this.src='https://placehold.co/400x400/0284c7/ffffff?text=MY';"
+            />
+          </div>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-4">
+          Muhammad Abubakar Yaro
+        </h1>
+
+        <p class="text-lg sm:text-xl text-cyan-400 font-medium mb-6">
+          Software Engineer &nbsp;|&nbsp; Data Scientist
+        </p>
+
+        <p class="text-gray-300 max-w-2xl mx-auto mb-8 font-light leading-relaxed text-base sm:text-lg">
+          Software Engineering Graduate with practical experience across web development, data science, and AI/data annotation. Passionate about leveraging data and modern web technologies to build practical tools, optimize machine learning models, and solve real-world problems.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a href="assets/file/myCV.pdf" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 !text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 transition-all">
+            CV 
+          </a>
+          <a href="#contact" class="px-8 py-3.5 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-white font-semibold border border-gray-700 hover:border-gray-600 transition-all">
+            Get in Touch
+          </a>
+        </div>
+
+        <!-- Social Bar -->
+        <div class="flex items-center justify-center gap-6 text-gray-400 text-xl">
+          <a href="https://github.com/muhdyaro" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 hover:scale-110 transition-all" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/muhdayaro/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 hover:scale-110 transition-all" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:muhdayaro@gmail.com" class="hover:text-cyan-400 hover:scale-110 transition-all" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & EDUCATION SECTION -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2"></h2>
+        <h3 class="text-3xl sm:text-4xl font-bold text-white">About Me & Education</h3>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-stretch">
+        <!-- About Box -->
+        <div class="md:col-span-7 glass-card-dark p-8 rounded-2xl border border-gray-800 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-bold text-white mb-4">Professional Profile</h4>
+            <p class="text-gray-300 leading-relaxed text-base mb-6">
+              A versatile tech practitioner skilled at spanning front-end web design, backend programming with Python and SQL, and applied data science workflows. Focused on practical problem-solving, clean code architecture, and mentoring others in digital skills.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-800 text-sm">
+            <div>
+              <span class="block text-gray-500 text-xs uppercase font-mono">Core Focus</span>
+              <span class="font-semibold text-white">Full-Stack & ML Data Science</span>
+            </div>
+            <div>
+              <span class="block text-gray-500 text-xs uppercase font-mono">Location</span>
+              <span class="font-semibold text-white">Kano / Kaduna, Nigeria</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Box -->
+        <div id="education" class="md:col-span-5 glass-card-dark p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/40 transition-colors flex flex-col justify-between">
+          <div>
+            <h4 class="text-2xl font-bold text-white mb-2">B.S. in Software Engineering</h4>
+            <p class="text-gray-300 font-medium mb-1">Al-Istiqama University, Sumaila, Kano</p>
+            <p class="text-gray-400 text-sm">Kano, Nigeria</p>
+          </div>
+          <div class="pt-6">
+            <span class="px-4 py-2 rounded-xl bg-gray-800 text-sm font-mono text-cyan-400 border border-gray-700 inline-block">
+            2020 – 2024
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE SECTION -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl sm:text-4xl font-bold text-white">Work & Research Experience</h3>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8">
+        
+        <!-- Experience 1 -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/40 transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h4 class="text-xl font-bold text-white">ICT & Teaching Assistant</h4>
+              <p class="text-cyan-400 font-medium">Nigerian Defence Academy &nbsp;•&nbsp; <span class="text-gray-400 text-sm">Kaduna, Nigeria</span></p>
+            </div>
+            <span class="px-3.5 py-1 rounded-full bg-gray-800 text-xs font-mono text-cyan-300 border border-gray-700 w-fit">
+              Mar 2026 – Dec 2026
+            </span>
+          </div>
+          <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+            <li>Instruct and assist students in ICT-related coursework, practical computing sessions, and laboratory exercises.</li>
+            <li>Support faculty with curriculum delivery, technical troubleshooting, and classroom technology infrastructure.</li>
+          </ul>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 hover:border-indigo-500/40 transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h4 class="text-xl font-bold text-white">Data Science & Machine Learning Fellow</h4>
+              <p class="text-indigo-400 font-medium">Arewa Data Science Academy &nbsp;•&nbsp; <span class="text-gray-400 text-sm">Remote</span></p>
+            </div>
+            <span class="px-3.5 py-1 rounded-full bg-gray-800 text-xs font-mono text-indigo-300 border border-gray-700 w-fit">
+              Mar 2024 – Jul 2024
+            </span>
+          </div>
+          <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+            <li>Performed exploratory data analysis and data visualization using Python, Pandas, NumPy, and Matplotlib.</li>
+            <li>Applied core machine learning algorithms and established automated data processing workflows in Jupyter Notebooks.</li>
+            <li>Maintained efficient version control and collaborative codebases utilizing Git and GitHub.</li>
+          </ul>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 hover:border-purple-500/40 transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h4 class="text-xl font-bold text-white">Web Development Intern</h4>
+              <p class="text-purple-400 font-medium">Stem Innovators Lab &nbsp;•&nbsp; <span class="text-gray-400 text-sm">Kano, Nigeria</span></p>
+            </div>
+            <span class="px-3.5 py-1 rounded-full bg-gray-800 text-xs font-mono text-purple-300 border border-gray-700 w-fit">
+              Sep 2023 – Feb 2024
+            </span>
+          </div>
+          <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+            <li>Designed and maintained front-end web interface elements using HTML, CSS, and JavaScript.</li>
+            <li>Developed backend scripts and integrated web components using Python.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl sm:text-4xl font-bold text-white">Projects</h3>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Climate Change App Project -->
+        <div class="glass-card-dark rounded-3xl p-8 sm:p-10 border border-gray-800 hover:border-cyan-500/40 transition-all glow-effect relative overflow-hidden">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">          
+            <div class="lg:col-span-7 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-400 text-xs font-mono">
+                <i class="fa-solid fa-rocket"></i> Live Web Application
+              </div>
+
+              <h4 class="text-2xl sm:text-3xl font-bold text-white hover:text-cyan-400 transition-colors">
+                <a href="https://6522be0ed825854157012d92--chic-genie-508912.netlify.app/" target="_blank" rel="noopener noreferrer">
+                  Climate Change Education Web App <i class="fa-solid fa-arrow-up-right-from-square text-lg ml-2"></i>
+                </a>
+              </h4>
+
+              <ul class="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-check text-cyan-400 mt-1"></i>
+                  <span>Designed and implemented an interactive web application aimed at enhancing climate change literacy for secondary school students.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-check text-cyan-400 mt-1"></i>
+                  <span>Built responsive UI components and backend logic to deliver educational modules and track student progress.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-check text-cyan-400 mt-1"></i>
+                  <span>Deployed the application and conducted usability testing with over 50 local students to refine interface accessibility.</span>
+                </li>
+              </ul>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-cyan-300 font-mono text-xs border border-gray-700">Python</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-cyan-300 font-mono text-xs border border-gray-700">JavaScript</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-cyan-300 font-mono text-xs border border-gray-700">HTML/CSS</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-cyan-300 font-mono text-xs border border-gray-700">Git</span>
+              </div>
+            </div>
+
+            <!-- App Display Box -->
+            <div class="lg:col-span-5">
+              <div class="bg-gray-900/90 rounded-2xl border border-gray-700/60 p-6 space-y-4 shadow-2xl">
+                <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="text-xs font-mono text-gray-500">Netlify Deployment</span>
+                </div>
+                <div class="space-y-3 font-mono text-xs">
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-emerald-400">
+                    &gt; Interactive Climate Literacy Modules
+                  </div>
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-cyan-400">
+                    &gt; Student Progress Tracking Logic
+                  </div>
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-indigo-400">
+                    &gt; Tested with 50+ Local Secondary Students
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DataCamp Projects Card -->
+        <div class="glass-card-dark rounded-3xl p-8 sm:p-10 border border-gray-800 hover:border-indigo-500/40 transition-all glow-effect relative overflow-hidden">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">          
+            <div class="lg:col-span-7 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-500/40 text-indigo-400 text-xs font-mono">
+                <i class="fa-brands fa-github"></i> Open Source Repository
+              </div>
+
+              <h4 class="text-2xl sm:text-3xl font-bold text-white hover:text-indigo-400 transition-colors">
+                <a href="https://github.com/muhdyaro/DataCamp-Projects" target="_blank" rel="noopener noreferrer">
+                  DataCamp Data Science & ML Projects <i class="fa-solid fa-arrow-up-right-from-square text-lg ml-2"></i>
+                </a>
+              </h4>
+
+              <p class="text-gray-300 text-sm leading-relaxed">
+                A comprehensive repository containing data science workflows, exploratory data analysis (EDA), predictive machine learning models, and data cleaning scripts completed across various DataCamp case studies.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-indigo-300 font-mono text-xs border border-gray-700">Python</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-indigo-300 font-mono text-xs border border-gray-700">Pandas</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-indigo-300 font-mono text-xs border border-gray-700">NumPy</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-indigo-300 font-mono text-xs border border-gray-700">SQL</span>
+                <span class="px-3 py-1 rounded-lg bg-gray-800 text-indigo-300 font-mono text-xs border border-gray-700">Jupyter</span>
+              </div>
+            </div>
+
+            <!-- Repository Display Box -->
+            <div class="lg:col-span-5">
+              <div class="bg-gray-900/90 rounded-2xl border border-gray-700/60 p-6 space-y-4 shadow-2xl">
+                <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                  <div class="flex items-center gap-2">
+                    <i class="fa-brands fa-github text-white text-lg"></i>
+                    <span class="text-xs font-mono text-gray-400">muhdyaro/DataCamp-Projects</span>
+                  </div>
+                </div>
+                <div class="space-y-3 font-mono text-xs">
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-indigo-400">
+                    &gt; Exploratory Data Analysis Pipelines
+                  </div>
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-purple-400">
+                    &gt; Predictive Modeling & Classification
+                  </div>
+                  <div class="p-3 bg-gray-950 rounded border border-gray-800 text-cyan-400">
+                    &gt; SQL Database Query Aggregations
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl sm:text-4xl font-bold text-white">Skills & Proficiencies</h3>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Programming -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-cyan-950 text-cyan-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white">Programming</h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Python</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">JavaScript</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">SQL</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">HTML5 / CSS3</span>
+          </div>
+        </div>
+
+        <!-- Frameworks & Tools -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-indigo-950 text-indigo-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-cubes"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white">Frameworks & Tools</h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">PyTorch</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Hugging Face</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Pandas</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">NumPy</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Matplotlib</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Git & GitHub</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Jupyter Notebook</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">React</span>
+          </div>
+        </div>
+
+        <!-- Domains -->
+        <div class="glass-card-dark p-8 rounded-2xl border border-gray-800 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-950 text-purple-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white">Domain Expertise</h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Software Engineering</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Data Analysis</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Machine Learning</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">Web Development</span>
+            <span class="px-3.5 py-1.5 rounded-lg bg-gray-800 text-white font-mono text-sm border border-gray-700">AI / Data Annotation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl sm:text-4xl font-bold text-white">Certifications & Awards</h3>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-certificate text-cyan-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Associate Data Scientist in Python</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">DataCamp</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-code text-indigo-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">100 Days of Code™: Complete Python Pro</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">Udemy</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-laptop-code text-purple-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Introduction to Front-End Development</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">Meta</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-code-branch text-emerald-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Version Control</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">Meta</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-globe text-cyan-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Web Development</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">CWW Tech Africa</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-rocket text-yellow-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Galactic Problem Solver</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">NASA Space Apps Challenge</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-pen-nib text-indigo-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Writing in the Sciences</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">Stanford University</span>
+        </div>
+
+        <div class="glass-card-dark p-6 rounded-2xl border border-gray-800 space-y-3">
+          <i class="fa-solid fa-brain text-pink-400 text-2xl"></i>
+          <h5 class="font-bold text-white text-base">Learning How to Learn</h5>
+          <span class="block text-xs font-mono text-gray-400 uppercase">Deep Teaching Solutions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/50">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <h3 class="text-3xl sm:text-5xl font-extrabold text-white">Let's Build Something Together</h3>
+        
+        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+          I am actively exploring full-time and project-based roles in Software Engineering, Web Development, and Data Science.
+        </p>
+
+        <div class="pt-4">
+          <a href="mailto:muhdayaro@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 !text-white font-bold text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all">
+            <i class="fa-solid fa-envelope"></i> muhdayaro@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-800/80 py-8 px-4 text-center text-xs text-gray-500 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © <span id="year">2026</span> Muhammad Abubakar Yaro.
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="https://github.com/muhdyaro" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/muhdayaro/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://muhdayaro.github.io" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400"><i class="fa-solid fa-globe"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Embedded photo avatar initializer
+    const USER_PORTRAIT_URL = "assets/picture/image.jpeg";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const heroAvatar = document.getElementById("heroAvatar");
+      if (heroAvatar) heroAvatar.src = USER_PORTRAIT_URL;
+    });
+
+    // Theme Toggle Script
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        html.classList.add('dark');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    });
+
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
